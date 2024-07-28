@@ -1,0 +1,9 @@
+FROM openjdk:11 as build
+WORKDIR /app
+ADD ./messageUtil-1.0.jar messageUtil-1.0.jar
+
+# Stage-2
+FROM openjdk:slim
+COPY --from=build /app .
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/messageUtil-1.0.jar"]
