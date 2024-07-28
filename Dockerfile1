@@ -1,0 +1,4 @@
+FROM openjdk:11
+ADD ./messageUtil-1.0.jar messageUtil-1.0.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/messageUtil-1.0.jar"]
